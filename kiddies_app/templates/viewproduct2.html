@@ -1,0 +1,43 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/prdct1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "customer-header.html"%}
+        </div>
+    </head>
+    <body>
+        <form>
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Photo</th>
+                    <th>Size</th>
+                    <th>Colour</th>
+                    <th>Age Group</th>
+                    <th>Remark</th>
+                </tr>
+            {% for p in cmp %}
+            <tr>
+                <td>{{ p.product_id }}</td>
+                <td>{{ p.product_name}}</td>
+                <td>{{ p.category}}</td>
+                <td>{{ p.unit_price}}</td>
+                <td>{{ p.stock_qty}}</td>
+                <td>{{ p.photo}}</td>
+                <td>{{ p.size}}</td>
+                <td>{{ p.colour}}</td>
+                <td>{{ p.age_group}}</td>
+                <td>{{ p.remark}}</td>
+                <td><a href="/givecomplaint/{{p.id}}">Give Complaint </a></td>
+            </tr>
+            {%endfor%}
+            </table>
+        </form>
+    </body>
+</html>

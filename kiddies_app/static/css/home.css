@@ -1,0 +1,48 @@
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../image/baby2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.d{
+    width: 30%;
+    height: 70%;
+    margin-left: 30%;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 12px;
+    color: rgb(255, 255, 255);
+}
+
+table{
+    width: 50%;
+    border: hidden;
+    margin-left: 20%;
+    color: rgb(0, 66, 87);
+}
+
+th{
+    color: lightyellow;
+
+}
+.nav{
+    overflow: hidden;
+    background: transparent;
+}
+
+.nav a {
+    float: right;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+h2{
+    font-family: 'Times New Roman';
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}

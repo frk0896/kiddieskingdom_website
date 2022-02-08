@@ -1,0 +1,46 @@
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'css/cust1.css' %}">
+        <div class="nav">
+            {% include "customer-header.html" %}
+        </div>
+    </head>
+    <body>
+        <div class="div">
+            <form method="post"  action="/orderdetails/{{itm.id}}">
+                {% csrf_token%}
+                <h2 align="center"><b><i>Order the Product</i></b></h1>
+                <table>
+                    <tr>
+                        <td>User Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="userid" value="{{uid}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Product Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="productid" value="{{itm.product_id}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="quantity" value="{{itm.quantity}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="price" value="{{itm.price}}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Order"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/cust1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "admin-header.html" %}
+        </div>
+    </head>
+    <body>
+        <form method="post" action="/changeprice2/{{pr.id}}">
+        {% csrf_token %}
+        <div class="div">
+            <h2>Change Price</h2>
+            <table>
+                <tr>
+                    <td>Product Id</td>
+                </tr>
+                <tr><td><input type="text" name="productid" value="{{pr.product_id}}" readonly="readonly"></td></tr>
+                <tr>
+                    <td>Product Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="productname" value="{{pr.product_name}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="category" value="{{pr.category}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Unit Price</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="unitprice" value="{{pr.unit_price}}" ></td>
+                </tr>
+                <tr>
+                    <td>Stock Quantity</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="stockquantity" value="{{pr.stock_qty}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+                </tr>
+                <tr>
+                    <td><img src="{{pr.photo}}" width="50" height="50"></td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="size" value="{{pr.size}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Colour</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="colour" value="{{pr.colour}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Age Group</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="agegroup" value="{{pr.age_group}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Remark</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="remark" value="{{pr.remark}}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Change"></td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </body>
+</html>

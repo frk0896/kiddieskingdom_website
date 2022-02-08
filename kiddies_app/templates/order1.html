@@ -1,0 +1,79 @@
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'css/cust1.css' %}">
+        <div class="nav">
+            {% include "customer-header.html" %}
+        </div>
+        <script>
+            function valid()
+            {
+                if(isNaN(f1.mobileno.value))
+                {
+                    alert('mobile number in numeric format..');
+                    f1.mobileno.focus();
+                }
+                if(f1.mobileno.value.length>10)
+                {
+                    alert("mobile number should be atleast 10 digits...");
+                    f1.mobileno.focus();
+                    return false;
+
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div">
+            <form method="post"  action="/finishorder1/" name="f1">
+                {% csrf_token%}
+               <table>
+                        <td>Payment Mode</td>
+                    </tr>
+                    <tr>
+                        <td><select name="payment">
+                            <option></option>
+                            <option>Cash</option>
+                            <option>ATM Card</option>
+                            <option>Net Banking</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Card No</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="cardno" required></td>
+                    </tr>
+                    <tr>
+                        <td>CVV</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="cvv" required></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile No</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="mobileno" required></td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="amount" value="{{amt}}"></td>
+                    </tr>
+                    <tr>
+                        <td>customer id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="customer_id"  value="{{u}}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="order" onclick="return valid()"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

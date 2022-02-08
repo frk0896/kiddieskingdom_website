@@ -1,0 +1,40 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/cust1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "customer-header.html" %}
+        </div>
+    </head>
+    <body>
+        <form method="post"  action="/addtocart1/">
+        {% csrf_token %}
+        <div class="div">
+            <h2>Select the Category</h2>
+            <table>
+                <tr>
+                    <td>Category</td>
+                </tr>
+                <tr>
+                    <td><select  name="category">
+                        <option></option>
+                        <option>Shirts</option>
+                        <option>Pants</option>
+                        <option>T-shirts</option>
+                        <option>Trousers</option>
+                        <option>Frock</option>
+                        <option>Top</option>
+                        <option>Skirt</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </body>
+</html>

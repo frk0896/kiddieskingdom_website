@@ -1,0 +1,50 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/prdct1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "customer-header.html"%}
+        </div>
+        <style>
+            a{
+                color:rgb(5, 40, 54);
+
+            }
+        </style>
+    </head>
+    <body>
+           
+        <form>
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <th>Cart Id</th>
+                    <th>User Id</th>
+                    <th>Product Id</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+            {% for p in itm %}
+            <tr>
+                <td>{{ p.cart_id }}</td>
+                <td>{{ p.user_id}}</td>
+                <td>{{ p.product_id}}</td>
+                <td>{{ p.quantity}}</td>
+                <td>{{ p.price}}</td>
+                <td>{{ p.status}}</td>
+                <td><a href="/orderaccept/{{p.id}}">Order Accept</a></td>
+                <td><a href="/orderreject/{{p.id}}">Order Reject</a></td>
+            </tr>
+            {%endfor%}
+            
+            </table>
+          
+        </form>
+        <br>
+        <br>
+        <font color="black">
+            <h2><a href="/finishorder"><b>Finish Order</b></a></font></h2> 
+       
+    </body>
+</html>

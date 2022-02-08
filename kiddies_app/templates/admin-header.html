@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/adminhead.css'%}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    </head>
+    <body>
+        
+        <h1>Kiddies Kingdom</h1>
+        <p>The Entire Babies Boutique</p>
+        <div class="navbar">
+            <a href="/login/" class="bi bi-power">Logout</a>
+            <a href="/viewcomplaint/">View Complaint</a>
+            <a href="/viewreview-admin/">View Review</a>
+            <a href="/vieworder/">View Order</a>
+            <div class="dropdown">
+                <button class="dropbtn" class="bi bi-caret-down-fill">Product Administration</button>
+                <div class="dropdown-content">
+                    <a href="/uploadproduct/">Upload Product</a>
+                    <a href="/changeprice/">Change Price</a>
+                    <a href="/removeproduct/">Remove Product</a>
+                </div>
+            </div>
+            <a href="/home/"  class="bi bi-house-fill">Home</a>
+        </div>
+    </body>
+</html>

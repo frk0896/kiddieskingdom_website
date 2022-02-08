@@ -1,0 +1,40 @@
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'css/cust1.css' %}">
+        <div class="nav">
+            {% include "customer-header.html" %}
+        </div>
+    </head>
+    <body>
+        <div class="div">
+            <form method="post"  action="/givereview1/">
+                {% csrf_token%}
+                <h2 align="center"><b><i>Give Review</i></b></h1>
+                <table>
+                    <tr>
+                        <td>Product Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="productid" value="{{itm.product_id}}"></td>
+                    </tr>
+                    <tr>
+                        <td>User Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="userid" value="{{uid}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Review</td>
+                    </tr>
+                    <tr>
+                        <td><textarea name="review"></textarea></td>
+                    </tr>
+                    
+                        <td colspan="2"><input type="submit" value="Add"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

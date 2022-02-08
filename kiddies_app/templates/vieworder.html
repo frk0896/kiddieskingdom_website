@@ -1,0 +1,37 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/prdct1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "admin-header.html"%}
+        </div>
+    </head>
+    <body>
+        <form>
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <th>Order NO</th>
+                    <th>User Id</th>
+                    <th>Order Date</th>
+                    <th>Amount</th>
+                    <th>Payment Mode</th> 
+                    <th>Order Status</th>
+                   
+                </tr>
+            {% for p in vw %}
+            <tr>
+                <td>{{ p.order_no }}</td>
+                <td>{{ p.user_id}}</td>
+                <td>{{ p.order_date}}</td>
+                <td>{{ p.amount}}</td>
+                <td>{{ p.payment_mode}}</td>
+                <td>{{ p.order_status}}</td>
+                <td><a href="/paymentdetails/{{p.order_no}}">View Payment Details</a></td>
+                <td><a href="/vieworderdetails/{{p.order_no}}">View Order Details</a></td>
+            </tr>
+            {%endfor%}
+            </table>
+        </form>
+    </body>
+</html>

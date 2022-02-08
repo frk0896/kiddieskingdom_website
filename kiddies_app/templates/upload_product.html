@@ -1,0 +1,106 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/cust1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "admin-header.html" %}
+        </div>
+        <script>
+            function valid()
+            {
+                if(isNaN(f1.unitprice.value))
+                {
+                    alert('Enter unitprice in numeric format');
+                    f1.unitprice.focus();
+                }
+                if(isNaN(f1.stockquantity.value))
+                {
+                    alert('Enter stockquantityin numeric format');
+                    f1.stockquantity.focus();
+                }
+                if(isNaN(f1.size.value))
+                {
+                    alert('Enter size numeric format');
+                    f1.size.focus();
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="/uploadproduct1/" name="f1">
+        {% csrf_token %}
+        <div class="div">
+            <h2>Upload Product</h2>
+            <table>
+                <tr>
+                    <td>Product Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="productname" required></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                </tr>
+                <tr>
+                    <td><select name="category">
+                        <option></option>
+                        <option>Shirts</option>
+                        <option>Pants</option>
+                        <option>T-shirts</option>
+                        <option>Trousers</option>
+                        <option>Frock</option>
+                        <option>Top</option>
+                        <option>Skirt</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Unit Price</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="unitprice" required ></td>
+                </tr>
+                <tr>
+                    <td>Stock Quantity</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="stockquantity" required></td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+                </tr>
+                <tr>
+                    <td><input type="file" name="photo"></td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="size" required></td>
+                </tr>
+                <tr>
+                    <td>Colour</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="colour" required></td>
+                </tr>
+                <tr>
+                    <td>Age Group</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="agegroup" required ></td>
+                </tr>
+                <tr>
+                    <td>Remark</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="remark" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Upload" onclick="return valid()"></td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </body>
+</html>

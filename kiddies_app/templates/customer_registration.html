@@ -1,0 +1,111 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/cust1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "home-header.html" %}
+        </div>
+        <script type="text/javascript">
+        function valid()
+        {
+            var regularExpression = new RegExp("^[a-z]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$")
+            if(isNaN(f1.pincode.value))
+            {
+                alert('Enter pincode in numeric format..');
+                f1.pincode.focus();
+            } 
+            if(f1.pincode.value.length!=6)
+            {
+                alert('Pincode should be 6 digits....');
+                f1.pincode.focus();
+                return false;
+            }
+            if(isNaN(f1.phone.value))
+            {
+                alert('Enter phone number in numeric format');
+                f1.phone.focus();
+            }
+            if(f1.phone.value.length>10)
+            {
+                alert('phone number should be  atleast 10 digits....');
+                f1.phone.focus();
+                return false;
+            }
+            if(!regularExpression.test(f1.email.value))
+            {
+                alert("Enter a valid ID.For example:'name@gmail.com'...");
+                return false;
+            }
+        return true;
+
+        }
+        </script>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="/customerregistration1/" name="f1">
+        {% csrf_token %}
+        <div class="div">
+            <h2>Customer Registration</h2>
+            <table>
+                <tr>
+                    <td>First Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="firstname" required ></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="lastname" required ></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                </tr>
+                <tr>
+                    <td><textarea name="address" required ></textarea></td>
+                </tr>
+                <tr>
+                    <td>Pincode</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="pincode" required ></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="city" required ></td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="state" required ></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="country" required ></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="phone"  required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="email" required ></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Register" onclick="return valid()"></td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </body>
+</html>

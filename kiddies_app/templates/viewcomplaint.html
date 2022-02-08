@@ -1,0 +1,32 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/prdct1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "admin-header.html"%}
+        </div>
+    </head>
+    <body>
+        <form>
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <th>Complaint Id</th>
+                    <th>Product Id</th>
+                    <th>User Id</th>
+                    <th>Complaint</th>
+                    <th>Complaint Date</th>
+                </tr>
+            {% for p in cmp %}
+            <tr>
+                <td>{{ p.complaint_id}}</td>
+                <td>{{ p.product_id }}</td>
+                <td>{{ p.user_id}}</td>
+                <td>{{ p.complaint}}</td>
+                <td>{{ p.complaint_date}}</td>
+            </tr>
+            {%endfor%}
+            </table>
+        </form>
+    </body>
+</html>

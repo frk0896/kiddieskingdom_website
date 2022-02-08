@@ -1,0 +1,32 @@
+<html>
+    <head>
+        {%load static%}
+        <link href="{%static 'css/prdct1.css'%}" rel="stylesheet">
+        <div class="nav">
+            {% include "home-header.html"%}
+        </div>
+    </head>
+    <body>
+        <form>
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <th>Review Id</th>
+                    <th>Product Id</th>
+                    <th>User Id</th>
+                    <th>Review</th>
+                    <th>Review Date</th>
+                </tr>
+            {% for p in vw %}
+            <tr>
+                <td>{{ p.review_id}}</td>
+                <td>{{ p.product_id }}</td>
+                <td>{{ p.user_id}}</td>
+                <td>{{ p.review}}</td>
+                <td>{{ p.review_date}}</td>
+            </tr>
+            {%endfor%}
+            </table>
+        </form>
+    </body>
+</html>

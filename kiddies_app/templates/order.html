@@ -1,0 +1,56 @@
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'css/cust1.css' %}">
+        <div class="nav">
+            {% include "customer-header.html" %}
+        </div>
+        <script>
+            function valid()
+            {
+                if(isNaN(f1.quantity.value))
+                {
+                    alert('Enter quantity in numeric format');
+                    f1.quantity.focus();
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div">
+            <form method="post"  action="/order1/" name="f1">
+                {% csrf_token%}
+                <h2 align="center"><b><i>Add to Cart</i></b></h1>
+                <table>
+                    <tr>
+                        <td>User Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="userid" value="{{uid}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Product Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="productid" value="{{itm.product_id}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="quantity"></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="price" value="{{itm.unit_price}}"></td>
+                    </tr>
+                        <td colspan="2"><input type="submit" value="Add to Cart" onclick="return valid()"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
